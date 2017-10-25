@@ -26,7 +26,7 @@
     //Variable con acceso a datos 
     var TablaDeBaseDatos= firebase.database().ref('chat');
     
-    TablaDeBaseDatos.on('value',function(snapshot){
+    TablaDeBaseDatos.limitToLast(20).on('value',function(snapshot){
         
          $(".chat").html(""); // Limpiamos todo el contenido del chat
         
@@ -38,7 +38,7 @@
              if((objeto.Mensaje!=null)&&(objeto.Nombre!=null)){
                  
                  // Copia el contenido al template y luego lo inserta en el chat
-                 $( "#plantilla" ).clone().appendTo( ".chat" );
+                 $( "#plantilla" ).clone().prependTo( ".chat" );
                  $('.chat #plantilla').show(10);
                  $('.chat #plantilla .Nombre').html(objeto.Nombre);
                  $('.chat #plantilla .Mensaje').html(objeto.Mensaje);
@@ -57,6 +57,21 @@
    <body>
        
        <div class="container">
+          <div class="row">
+          <div class="col-md-12">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div align="center">
+        <ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4331617637495482"
+     data-ad-slot="2764029251"></ins></div>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <br>
+       
+   </div>
+          </div>
     <div class="row">
         <!-- inicio de la caja de chat con bootstrap -->
         <div class="col-md-6 col-md-offset-3">
